@@ -4,29 +4,31 @@ const db = require('./db');
 //MODEL USUARIOS
 const Usuarios =  db.sequelize.define('usuarios',{
     nome: {
-        type: db.Sequelize.STRING
-    },
-    sobrenome: {
-        type: db.Sequelize.STRING
-    },
-    idade: {
-        type: db.Sequelize.INTEGER
-    },
-    genero:{
-        type: db.Sequelize.STRING
-    },
-    email: {
         type: db.Sequelize.TEXT
     },
+    sobrenome: {
+        type: db.Sequelize.TEXT
+    },
+    data_nascimento: {
+        type: db.Sequelize.DATE
+    },
+    genero:{
+        type: db.Sequelize.TEXT
+    },
+    email: {
+        type: db.Sequelize.STRING
+    },
     telefone:{
-        type: db.Sequelize.INTEGER
+        type: db.Sequelize.STRING
     },
     ativo: {
         type: db.Sequelize.BOOLEAN
     }
 });
-
+/*
 //SINCRONIZAR COM BANCO
 Usuarios.sync({
     force: true
 })
+*/
+module.exports = Usuarios;
