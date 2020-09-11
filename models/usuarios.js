@@ -10,7 +10,7 @@ const Usuarios =  db.sequelize.define('usuarios',{
         type: db.Sequelize.TEXT
     },
     data_nascimento: {
-        type: db.Sequelize.DATE
+        type: db.Sequelize.DATEONLY
     },
     genero:{
         type: db.Sequelize.TEXT

@@ -27,6 +27,13 @@
         res.render('cadastro');
     });
 
+    //LISTAGEM USUÁRIOS
+    app.get('/',(req,res)=>{
+        Usuarios.findAll({order:[['id','DESC']]}).then((posts)=>{
+            res.render('listagem',{posts: posts});
+        }).catch();
+     });
+
     //POST USUÁRIOS
     app.post('/add', (req, res)=>{
         Usuarios.create({
