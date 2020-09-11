@@ -1,3 +1,5 @@
+// cSpell: ignore Usuarios, usuario, deleta
+
 //MÓDULOS
     //IMPORTA EXPRESS
     const express = require('express');
@@ -46,6 +48,15 @@
             ativo:req.body.ativo
         });
         res.send(req.body);
+    });
+
+    //DELETA USUARIO
+    app.get('/delete/:id',(req, res)=>{
+        Usuarios.destroy({where: {'id': req.params.id}}).then(()=>{
+            res.redirect('/')
+        }).catch((erro)=>{
+            res.send("Usuario inexistente!!")
+        });
     });
 
 app.listen(5555, function(){
